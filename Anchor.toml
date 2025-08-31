@@ -12,7 +12,7 @@ expense_tracker = "GDxPu92JyVHbcLwwoED3XuL6QNiXqZYxX7stXg7LZpTH"
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "localnet"
+cluster = "Devnet"
 wallet = "~/.config/solana/id.json"
 
 [scripts]

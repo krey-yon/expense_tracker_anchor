@@ -43,8 +43,17 @@ describe("expense-tracker", () => {
       .accounts({
         expenseAccount: expense_account,
         authority: provider.wallet.publicKey,
-      }).rpc();
-      console.log("modify expense", tx)
+      })
+      .rpc();
+    console.log("modify expense", tx);
+
+    const account = await program.account.expenseAccount.fetch(expense_account);
+
+    console.log("Fetched expense account:", account);
+    console.log("ID:", account.id.toString()); // BN → string
+    console.log("Owner:", account.owner.toBase58());
+    console.log("Merchant:", account.merchantName);
+    console.log("Amount:", account.amount.toString());
   });
 
   it("Delete expense", async () => {
@@ -55,6 +64,6 @@ describe("expense-tracker", () => {
         authority: provider.wallet.publicKey,
       })
       .rpc();
-      console.log("delete expense",tx)
+    console.log("delete expense", tx);
   });
 });
